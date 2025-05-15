@@ -34,14 +34,14 @@ jobs:
   prerelease:
       needs: CheckForRelease
       if: needs.CheckForRelease.outputs.isReleased == 'false'
-      uses: aws-deadline/.github/.github/workflows/reusable_prerelease.yml@mainline
+      uses: erico-aws/.github/.github/workflows/reusable_prerelease.yml@mainline
       secrets: inherit
       with:
           installer_oses: "['Linux', 'Windows', 'MacOS']"
           tag: ${{inputs.tag}}
   release:
       needs: prerelease
-      uses: aws-deadline/.github/.github/workflows/reusable_release.yml@mainline
+      uses: erico-aws/.github/.github/workflows/reusable_release.yml@mainline
       secrets: inherit
       with:
           tag: ${{inputs.tag}}
@@ -57,7 +57,7 @@ jobs:
          :
   Publish:
       needs: IsCondaReady
-      uses: aws-deadline/.github/.github/workflows/reusable_publish_python.yml@mainline
+      uses: erico-aws/.github/.github/workflows/reusable_publish_python.yml@mainline
       secrets: inherit
       with:
           tag: ${{inputs.tag}}

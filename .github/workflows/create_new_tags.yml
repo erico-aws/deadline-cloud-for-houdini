@@ -9,5 +9,5 @@ on:
 
 jobs:
     create-new-tag:
-        uses: aws-deadline/.github/.github/workflows/reusable_create_new_tag.yml@mainline
+        uses: erico-aws/.github/.github/workflows/reusable_create_new_tag.yml@mainline
         secrets: inherit
